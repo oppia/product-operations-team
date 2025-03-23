@@ -1,0 +1,40 @@
+name: New Feature Launch
+description: Submit a request for coordinating a new feature launch
+title: "[New Feature Launch]: "
+body:
+  - type: markdown
+    attributes:
+      value: >
+        Thanks for submitting a request for a new feature launch! Please fill in the details below so that we can process it.
+
+        As a reminder, for new feature launches, please follow the steps here: https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags
+  - type: dropdown
+    id: product-id
+    attributes:
+      label: Product
+      description: Which platform is this feature being released on?
+      options:
+        - Oppia Web
+        - Oppia Android
+    validations:
+      required: true
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Brief description of the feature
+    validations:
+      required: true
+  - type: input
+    id: developer-id
+    attributes:
+      label: Point of Contact
+      description: GitHub username of the primary feature developer
+    validations:
+      required: true
+  - type: input
+    id: feature-flag-name
+    attributes:
+      label: Feature flag name
+      description: Name of the feature flag that needs to be flipped to enable this feature
+    validations:
+      required: true
