@@ -1,0 +1,17 @@
+name: PRD request
+description: Submit a request for creating a new PRD or making a product decision
+title: "[PRD]: "
+body:
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Any other relevant context/info
+      description: Add any other context about the request here.
+    validations:
+      required: false
