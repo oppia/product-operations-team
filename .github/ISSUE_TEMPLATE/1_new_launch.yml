@@ -130,14 +130,16 @@ body:
               "test stage" PR actually moves the feature flag to the TEST stage.
         - [ ] Ensure that the Google Drive folder for this feature has been correctly set up
               and contains the necessary documents (e.g. pre-launch review template).
+        - [ ] Ask the developer and the relevant dev team leads to subscribe to this
+              issue thread; ensure that they have done so.
         - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a 
               backup-server deployment of that PR.
         - [ ] Ask Sean to provide your username on that server with the necessary permissions.
 
         **Dry-run**
 
-        - [ ] Do a run-through of the feature and send a report to the developer and the dev leads.
-              Add a comment to this issue thread stating when the dry-run is scheduled for.
+        - [ ] Do a run-through of the feature and post a new comment to this thread with the
+              testing report. Add a comment to this issue thread with a link to the testing report.
         - [ ] If issues were discovered in the run-through, repeat the above as needed until there
               are no more issues. (Only mark this step as complete once that stage is reached.)
         - [ ] Set up the Looker Studio dashboard for this feature and verify that it records events
@@ -152,8 +154,7 @@ body:
         - [ ] Ask Sean to provide the tester usernames on the backup server with the necessary
               permissions.
         - [ ] Run the feature testing process with the QA team and send a report to the developer
-              and the dev leads. Add a comment to this issue thread stating when the feature test
-              period is scheduled for.
+              and the dev leads. Add a comment to this issue thread with a link to this report.
         - [ ] If issues were discovered in the testing, repeat the above as needed until there are
               no more issues. (Only mark this step as complete once the feature passes testing.)
         - [ ] Ask the developer to move their flag to PROD stage. Link to the PR here once it is
