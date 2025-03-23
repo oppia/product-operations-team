@@ -27,7 +27,7 @@ body:
       label: Brief description of the feature
     validations:
       required: true
-  - type: input
+  - type: dropdown
     id: expected-code-complete-date
     attributes:
       label: Expected code-complete date
@@ -77,17 +77,18 @@ body:
       label: Required roles for testing
       description: Which role permissions are needed to test this feature?
       options:
-        - Blog admin
-        - Blog post editor
-        - Curriculum admin
-        - Topic manager
-        - Question admin/coordinator
-        - Question reviewer
-        - Question submitter
-        - Translation admin/coordinator
-        - Translation reviewer
-        - Translation submitter
-        - Voiceover admin
+        - label: Curriculum admin
+        - label: Topic manager
+        - label: Question admin/coordinator
+        - label: Question reviewer
+        - label: Question submitter
+        - label: Translation admin/coordinator
+        - label: Translation reviewer
+        - label: Translation submitter
+        - label: Voiceover admin
+        - label: Blog admin
+        - label: Blog post editor
+        - label: None of the above
     validations:
       required: true
   - type: input
@@ -133,12 +134,8 @@ body:
         team will include this request when corresponding with the QA team.
     validations:
       required: false
-
-
-
-
-
   - type: textarea
+    id: instructions-for-prodops
     attributes:
       label: Instructions for ProdOps Team
       description: Please leave this section as-is.
@@ -173,4 +170,4 @@ body:
         **Rollout**
 
         - [ ] Agree on launch date with Marketing team and document it here. **Launch date**: ______.
-      required: true
+    required: true
