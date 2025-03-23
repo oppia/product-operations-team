@@ -5,13 +5,13 @@ body:
   - type: textarea
     id: issue-description
     attributes:
-      label: Brief description of the issue
+      label: Description of the task
     validations:
       required: true
   - type: textarea
     id: required-result
     attributes:
-      label: When is this issue considered complete?
+      label: When should this issue be considered complete?
     validations:
       required: true
   - type: textarea
