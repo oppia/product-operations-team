@@ -1,0 +1,22 @@
+name: Documentation/Admin
+description: Submit a request for improving team documentation (or doing other admin tasks)
+title: "[Documentation/Admin]: "
+body:
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: Brief description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: required-result
+    attributes:
+      label: When is this issue considered complete?
+    validations:
+      required: true
+  - type: textarea
+    id: other-context
+    attributes:
+      label: Any other relevant context/info
+    validations:
+      required: false
