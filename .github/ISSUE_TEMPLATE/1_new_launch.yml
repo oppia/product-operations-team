@@ -110,15 +110,6 @@ body:
     validations:
       required: true
   - type: input
-    id: test-stage-PR
-    attributes:
-      label: Link to the PR which moved the flag to the TEST feature stage
-      description: >
-        To be eligible for feature testing, your feature flag must be in the TEST stage.
-        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
-    validations:
-      required: true
-  - type: input
     id: feature-flag-name
     attributes:
       label: Feature flag name
@@ -128,7 +119,7 @@ body:
   - type: textarea
     id: any-other-info
     attributes:
-      label: Is there anything else you would like the testing team to know?
+      label: (Optional) Is there anything else you would like the testing team to know?
       description: >
         For example, anything in particular that you would like feedback on. The ProdOps
         team will include this request when corresponding with the QA team.
@@ -170,4 +161,5 @@ body:
         **Rollout**
 
         - [ ] Agree on launch date with Marketing team and document it here. **Launch date**: ______.
-    required: true
+    validations:
+      required: true
