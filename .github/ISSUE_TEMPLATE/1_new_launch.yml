@@ -140,19 +140,30 @@ body:
         - [ ] Ensure that the PRD, TDD, CUJs, permissions and starting URL path are provided.
         - [ ] Ensure that the "test stage" PR and feature flag name are provided, and that the
               "test stage" PR actually moves the feature flag to the TEST stage.
+        - [ ] Ensure that the Google Drive folder for this feature has been correctly set up
+              and contains the necessary documents (e.g. pre-launch review template).
         - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a 
               backup-server deployment of that PR.
+        - [ ] Ask Sean to provide your username on that server with the necessary permissions.
 
         **Dry-run**
-              
+
         - [ ] Do a run-through of the feature and send a report to the developer and the dev leads.
         - [ ] If issues were discovered in the run-through, repeat the above as needed until there
               are no more issues. (Only mark this step as complete once that stage is reached.)
+        - [ ] Set up the Looker Studio dashboard for this feature and verify that it records events
+              correctly.
 
         **Full feature testing**
 
-        - [ ] Organize feature testing with the QA team and send a report to the developer and the
-              dev leads.
+        - [ ] Set up a Google Space for this feature launch and invite all relevant parties
+              (design, developer, QA, campaign strategy team members + leads).
+        - [ ] Give the QA team a heads-up that a new feature will be coming to test soon. Send them
+              the CUJs and request the list of testers.
+        - [ ] Ask Sean to provide the tester usernames on the backup server with the necessary
+              permissions.
+        - [ ] Run the feature testing process with the QA team and send a report to the developer
+              and the dev leads.
         - [ ] If issues were discovered in the testing, repeat the above as needed until there are
               no more issues. (Only mark this step as complete once the feature passes testing.)
         - [ ] Ask the developer to move their flag to PROD stage. Link to the PR here once it is
@@ -161,5 +172,11 @@ body:
         **Rollout**
 
         - [ ] Agree on launch date with Marketing team and document it here. **Launch date**: ______.
+        - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above).
+        - [ ] Monitor post-launch feedback through [GitHub](https://github.com/oppia/oppia/issues) issues,
+              filed and [Google Groups forum](https://groups.google.com/g/oppia).
+        - [ ] 2 weeks after launch, compile a post-launch report and schedule a debrief with everyone on
+              the command channel (design, developers, marketing, QA).
+        - [ ] Close this bug. This concludes the feature launch, congratulations! 🎉
     validations:
       required: true
