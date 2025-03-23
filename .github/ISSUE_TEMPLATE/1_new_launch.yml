@@ -104,6 +104,13 @@ body:
       description: Name of the feature flag that needs to be flipped to enable this feature
     validations:
       required: true
+  - type: input
+    id: feature-flag-min-version
+    attributes:
+      label: (Android only) Minimum supported Android version
+      description: Specify the minimum Android version to enable the feature flag for
+    validations:
+      required: false
   - type: textarea
     id: any-other-info
     attributes:
