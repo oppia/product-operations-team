@@ -8,8 +8,8 @@ body:
         Thanks for submitting a request for a new feature launch! Please fill in the details 
         below so that we can process it.
 
-        As a reminder, for new feature launches, please follow the steps here:
-        https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags
+        Note that new feature launches should follow 
+        [these steps](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
   - type: dropdown
     id: product-id
     attributes:
