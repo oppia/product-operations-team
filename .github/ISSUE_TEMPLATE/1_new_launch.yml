@@ -5,17 +5,20 @@ body:
   - type: markdown
     attributes:
       value: >
-        Thanks for submitting a request for a new feature launch! Please fill in the details below so that we can process it.
+        Thanks for submitting a request for a new feature launch! Please fill in the details 
+        below so that we can process it.
 
-        As a reminder, for new feature launches, please follow the steps here: https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags
+        As a reminder, for new feature launches, please follow the steps here:
+        https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags
   - type: dropdown
     id: product-id
     attributes:
       label: Product
-      description: Which platform is this feature being released on?
+      description: Which platform/team owns this feature?
       options:
-        - Oppia Web
-        - Oppia Android
+        - Web (LaCE)
+        - Web (Contributor Dashboard)
+        - Android
     validations:
       required: true
   - type: textarea
@@ -25,10 +28,93 @@ body:
     validations:
       required: true
   - type: input
+    id: expected-code-complete-date
+    attributes:
+      label: Expected code-complete date
+      description: This should include implementation of any analytics events noted in the PRD.
+      options:
+        - 2025 Q2
+        - 2025 Q3
+        - 2025 Q4
+        - 2026 Q1
+        - 2026 Q2
+        - 2026 Q3
+        - 2026 Q4
+    validations:
+      required: true
+  - type: input
     id: developer-id
     attributes:
-      label: Point of Contact
+      label: Developer point-of-contact
       description: GitHub username of the primary feature developer
+    validations:
+      required: true
+  - type: input
+    id: prd-link
+    attributes:
+      label: Link to the PRD for this feature
+    validations:
+      required: true
+  - type: input
+    id: tdd-link
+    attributes:
+      label: Link to the TDD for this feature
+    validations:
+      required: true
+  - type: input
+    id: cujs-link
+    attributes:
+      label: Link to the spreadsheet containing the critical user journeys for this feature
+      description: >
+        The spreadsheet should be formatted similarly to this
+        [acceptance test matrix](https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit?gid=1275148408#gid=1275148408).
+        In other words, the user journeys should be grouped by user type, and clearly laid out with steps and expectations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: testing-roles
+    attributes:
+      label: Required roles for testing
+      description: Which role permissions are needed to test this feature?
+      options:
+        - Blog admin
+        - Blog post editor
+        - Curriculum admin
+        - Topic manager
+        - Question admin/coordinator
+        - Question reviewer
+        - Question submitter
+        - Translation admin/coordinator
+        - Translation reviewer
+        - Translation submitter
+        - Voiceover admin
+    validations:
+      required: true
+  - type: input
+    id: test-stage-PR
+    attributes:
+      label: Link to the PR which moved the flag to the TEST feature stage
+      description: >
+        To be eligible for feature testing, your feature flag must be in the TEST stage.
+        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
+    validations:
+      required: true  
+  - type: input
+    id: url-path
+    attributes:
+      label: URL path from which to access the feature
+      description: >
+        Which initial URL path is this feature accessed from? Note
+        that it should start with a '/', e.g. '/learn/math`.
+    validations:
+      required: true
+  - type: input
+    id: test-stage-PR
+    attributes:
+      label: Link to the PR which moved the flag to the TEST feature stage
+      description: >
+        To be eligible for feature testing, your feature flag must be in the TEST stage.
+        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
     validations:
       required: true
   - type: input
@@ -37,4 +123,54 @@ body:
       label: Feature flag name
       description: Name of the feature flag that needs to be flipped to enable this feature
     validations:
+      required: true
+  - type: textarea
+    id: any-other-info
+    attributes:
+      label: Is there anything else you would like the testing team to know?
+      description: >
+        For example, anything in particular that you would like feedback on. The ProdOps
+        team will include this request when corresponding with the QA team.
+    validations:
+      required: false
+
+
+
+
+
+  - type: textarea
+    attributes:
+      label: Instructions for ProdOps Team
+      description: Please leave this section as-is.
+      value: |
+        When you are assigned to this issue, please do the following. Tick each
+        checkbox item as you complete each step:
+
+        **Preparation**
+
+        - [ ] Work with the developer to narrow the code-complete date above to a specific day.
+        - [ ] Ensure that the PRD, TDD, CUJs, permissions and starting URL path are provided.
+        - [ ] Ensure that the "test stage" PR and feature flag name are provided, and that the
+              "test stage" PR actually moves the feature flag to the TEST stage.
+        - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a 
+              backup-server deployment of that PR.
+
+        **Dry-run**
+              
+        - [ ] Do a run-through of the feature and send a report to the developer and the dev leads.
+        - [ ] If issues were discovered in the run-through, repeat the above as needed until there
+              are no more issues. (Only mark this step as complete once that stage is reached.)
+
+        **Full feature testing**
+
+        - [ ] Organize feature testing with the QA team and send a report to the developer and the
+              dev leads.
+        - [ ] If issues were discovered in the testing, repeat the above as needed until there are
+              no more issues. (Only mark this step as complete once the feature passes testing.)
+        - [ ] Ask the developer to move their flag to PROD stage. Link to the PR here once it is
+              merged: ______.
+
+        **Rollout**
+
+        - [ ] Agree on launch date with Marketing team and document it here. **Launch date**: ______.
       required: true
