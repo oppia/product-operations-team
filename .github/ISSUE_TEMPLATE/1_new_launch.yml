@@ -80,21 +80,21 @@ body:
     validations:
       required: true
   - type: input
-    id: test-stage-PR
-    attributes:
-      label: Link to the PR which moved the flag to the TEST feature stage
-      description: >
-        To be eligible for feature testing, your feature flag must be in the TEST stage.
-        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
-    validations:
-      required: true  
-  - type: input
     id: url-path
     attributes:
       label: URL path from which to access the feature
       description: >
         Which initial URL path is this feature accessed from? Note
         that it should start with a '/', e.g. '/learn/math`.
+    validations:
+      required: true
+  - type: input
+    id: test-stage-PR
+    attributes:
+      label: Link to the PR which moved the flag to the TEST feature stage
+      description: >
+        To be eligible for feature testing, your feature flag must be in the TEST stage.
+        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
     validations:
       required: true
   - type: input
@@ -166,6 +166,8 @@ body:
               no more issues. (Only mark this step as complete once the feature passes testing.)
         - [ ] Ask the developer to move their flag to PROD stage. Link to the PR here once it is
               merged: ______.
+        - [ ] Ensure that the QA team has added the CUJs for the new feature to the overall CUJs
+              used for testing regular releases.
 
         **Rollout**
 
@@ -173,8 +175,10 @@ body:
         - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above).
         - [ ] Monitor post-launch feedback through [GitHub](https://github.com/oppia/oppia/issues) issues,
               filed and [Google Groups forum](https://groups.google.com/g/oppia).
-        - [ ] 2 weeks after launch, compile a post-launch report and schedule a debrief with everyone on
-              the command channel (design, developers, marketing, QA).
+        - [ ] 2 weeks after launch, compile a [post-launch report](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit)
+              and schedule a post-launch review with everyone on the command channel (design,
+              developers, marketing, QA).
+        - [ ] Ask the developer to remove the feature flag. **Link to PR that removes the flag: _____.**
         - [ ] Close this bug. This concludes the feature launch, congratulations! 🎉
     validations:
       required: true
