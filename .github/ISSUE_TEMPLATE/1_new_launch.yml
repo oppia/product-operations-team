@@ -145,8 +145,9 @@ body:
 
         **Dry-run**
 
-        - [ ] Do a run-through of the feature and post a new comment to this thread with the
-              testing report. Add a comment to this issue thread with a link to the testing report.
+        - [ ] Do a run-through of the feature, and make updates to clarify the CUJ descriptions
+              as needed. Then, post a new comment to this thread with the testing report, and cc
+              the developer and relevant dev team leads.
         - [ ] If issues were discovered in the run-through, repeat the above as needed until there
               are no more issues. (Only mark this step as complete once that stage is reached.)
         - [ ] Set up the Looker Studio dashboard for this feature and verify that it records events
@@ -160,8 +161,9 @@ body:
               the CUJs and request the list of testers.
         - [ ] Ask Sean to provide the tester usernames on the backup server with the necessary
               permissions.
-        - [ ] Run the feature testing process with the QA team and send a report to the developer
-              and the dev leads. Add a comment to this issue thread with a link to this report.
+        - [ ] Run the feature testing process with the QA team. As testing progresses, make updates
+              to clarify the CUJ descriptions as needed. Add a comment to this issue thread with
+              a link to the feature testing report, and cc the developer and relevant dev team leads.
         - [ ] If issues were discovered in the testing, repeat the above as needed until there are
               no more issues. (Only mark this step as complete once the feature passes testing.)
         - [ ] Ask the developer to move their flag to PROD stage. Link to the PR here once it is
