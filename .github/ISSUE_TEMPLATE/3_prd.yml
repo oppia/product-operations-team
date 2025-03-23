@@ -1,6 +1,6 @@
-name: PRD request
+name: PRD/Requirements request
 description: Submit a request for creating a new PRD or making a product decision
-title: "[PRD]: "
+title: "[PRD/Requirements]: "
 body:
   - type: textarea
     id: issue-description
