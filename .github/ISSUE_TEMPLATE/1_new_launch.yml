@@ -125,7 +125,7 @@ body:
     attributes:
       label: Instructions for ProdOps Team
       description: Please leave this section as-is.
-      value: |
+      value: >
         When you are assigned to this issue, please do the following. Tick each
         checkbox item as you complete each step:
 
@@ -136,7 +136,8 @@ body:
         - [ ] Ensure that the "test stage" PR and feature flag name are provided, and that the
               "test stage" PR actually moves the feature flag to the TEST stage.
         - [ ] Ensure that the Google Drive folder for this feature has been correctly set up
-              and contains the necessary documents (e.g. pre-launch review template).
+              and contains the necessary documents (pre-launch review template, post-launch
+              review template, links/shortcuts to PRDs, TDDs, etc.). Folder link: __________
         - [ ] Ask the developer and the relevant dev team leads to subscribe to this
               issue thread; ensure that they have done so.
         - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a 
