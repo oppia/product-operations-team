@@ -138,6 +138,7 @@ body:
         - [ ] Fill in the "Instructions for Testers" section of the pre-launch review template.
         - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a backup-server deployment of that PR.
         - [ ] Ask Sean to provide your username on that server with the necessary permissions.
+        - [ ] Verify that the Marketing team's [tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0) has a sheet for this product launch.
 
         **Dry-run**
         - [ ] Create a Looker Studio dashboard for the feature, and supplement it with metrics obtained using BigQuery queries, as needed. Link to the dashboard in the instructions for testers.
