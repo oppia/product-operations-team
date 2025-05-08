@@ -89,15 +89,6 @@ body:
     validations:
       required: true
   - type: input
-    id: test-stage-PR
-    attributes:
-      label: Link to the PR which moved the flag to the TEST feature stage
-      description: >
-        To be eligible for feature testing, your feature flag must be in the TEST stage.
-        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
-    validations:
-      required: true
-  - type: input
     id: feature-flag-name
     attributes:
       label: Feature flag name
@@ -111,6 +102,15 @@ body:
       description: Specify the minimum Android version to enable the feature flag for
     validations:
       required: false
+  - type: input
+    id: test-stage-PR
+    attributes:
+      label: Link to the PR which moved the flag to the TEST feature stage
+      description: >
+        To be eligible for feature testing, your feature flag must be in the TEST stage.
+        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
+    validations:
+      required: false      
   - type: textarea
     id: any-other-info
     attributes:
@@ -136,6 +136,7 @@ body:
         - [ ] Ensure that the Google Drive folder for this feature has been correctly set up and contains the necessary documents (pre-launch review template, post-launch review template, links/shortcuts to PRDs, TDDs, etc.). Folder link: __________
         - [ ] Ask the developer and the relevant dev team leads to subscribe to this issue thread; ensure that they have done so.
         - [ ] Fill in the "Instructions for Testers" section of the pre-launch review template.
+        - [ ] Verify that the "test stage" PR has been merged (see "Link to the PR which moved the flag to the TEST feature stage" field, above).
         - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a backup-server deployment of that PR.
         - [ ] Ask Sean to provide your username on that server with the necessary permissions.
         - [ ] Verify that the Marketing team's [tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0) has a sheet for this product launch.
