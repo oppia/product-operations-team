@@ -129,22 +129,26 @@ body:
         When you are assigned to this issue, please do the following. Tick each
         checkbox item as you complete each step:
 
-        **Preparation**
-        - [ ] Work with the developer to narrow the code-complete date above to a specific day.
-        - [ ] Ensure that the PRD, TDD, CUJs, permissions and starting URL path are provided.
-        - [ ] Ensure that the "test stage" PR and feature flag name are provided, and that the "test stage" PR actually moves the feature flag to the TEST stage.
-        - [ ] Ensure that the Google Drive folder for this feature has been correctly set up and contains the necessary documents (pre-launch review template, post-launch review template, links/shortcuts to PRDs, TDDs, etc.). Folder link: __________
-        - [ ] Ask the developer and the relevant dev team leads to subscribe to this issue thread; ensure that they have done so.
-        - [ ] Fill in the "Instructions for Testers" section of the pre-launch review template.
-        - [ ] Verify that the "test stage" PR has been merged (see "Link to the PR which moved the flag to the TEST feature stage" field, above).
+        **Tech-lead prep (to be done by a tech lead)**
+        - [ ] Ensure that the issue is filed correctly (PRD, TDD, CUJs, permissions, feature flag name and starting URL path are provided), ask for any missing info if needed.
+        - [ ] Ensure that the "Instructions for Testers" section of the pre-launch review template is fully filled in.
+        - [ ] Ask the developer and the relevant dev team leads to subscribe to this issue thread for updates, and ensure that they have done so.
+        - [ ] Verify that the "test stage" PR has been merged (see the "Link to the PR which moved the flag to the TEST feature stage" field), and that it actually moves the feature flag to the TEST stage.
         - [ ] Once the "test stage" PR has been merged, ask the server admins to schedule a backup-server deployment of that PR.
-        - [ ] Ask Sean to provide your username on that server with the necessary permissions.
+        - [ ] Enable the feature flag on the backup-server.
+        - [ ] Verify that the CUJs for the feature actually work technically on the backup-server (with the flag enabled).
+        - [ ] Ensure that the ProdOps assignee has the correct permissions on the backup-server to do a dry-run of the feature.
+        - [ ] Hand off to the ProdOps team (deassign yourself and tag/add the correct assignee from ProdOps).
+
+        **Preparation**
+        - [ ] Ensure that the Google Drive folder for this feature has been correctly set up and contains the necessary documents (pre-launch review template, post-launch review template, links/shortcuts to PRDs, TDDs, etc.). Folder link: __________
         - [ ] Verify that the Marketing team's [tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0) has a sheet for this product launch.
 
         **Dry-run**
-        - [ ] Create a Looker Studio dashboard for the feature, and supplement it with metrics obtained using BigQuery queries, as needed. Link to the dashboard in the instructions for testers.
-        - [ ] Do a full run-through of the feature, and make updates to clarify the CUJ descriptions as needed. Then, post a new comment to this thread with the testing report, and cc the developer and relevant dev team leads. Ensure that any bugs found during this process are filed and assigned to the developer.
-        - [ ] If issues were discovered in the run-through, repeat the above as needed until there are no more issues. (Only mark this step as complete once that stage is reached.)
+        - [ ] Create a Looker Studio dashboard for the feature, and supplement it with metrics obtained using BigQuery queries, as needed.
+        - [ ] Add a link to the backup-server Looker Studio dashboard in the instructions for testers.
+        - [ ] Do a full run-through of the feature, and make updates to clarify the CUJ descriptions as needed. Then, post a new comment to this thread with the testing report, and cc the developer and relevant dev team leads. Ensure that any bugs found during this process are filed and assigned to the developer. If you see design issues, it's fine to loop in the design team.
+        - [ ] If issues were discovered in the run-through, repeat the above as needed until there are no more issues. (Only mark this step as complete once that stage is reached -- at this point, ProdOps is saying "I'm happy with the feature, it can go to full QA.")
         - [ ] Set up the Looker Studio dashboard for this feature and verify that it records events correctly.
 
         **Full feature testing**
