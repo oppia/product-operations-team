@@ -33,7 +33,7 @@ body:
       label: Link to the pre-launch review doc for this feature
       description: >
         This should include the PRD, TDD, CUJs, starting URL path, etc. It should be based on
-        [this template]([pre-launch review doc](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.4t336fwwj9ly).
+        [this template](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.4t336fwwj9ly).
     validations:
       required: true
   - type: dropdown
