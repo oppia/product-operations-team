@@ -5,9 +5,15 @@ body:
   - type: textarea
     id: issue-description
     attributes:
-      label: Description of the issue
+      label: Description of the problem
     validations:
       required: true
+  - type: textarea
+    id: possible-solutions
+    attributes:
+      label: Possible solutions / ideas for addressing the problem
+    validations:
+      required: false
   - type: textarea
     id: additional-context
     attributes:
