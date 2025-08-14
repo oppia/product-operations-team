@@ -149,15 +149,14 @@ body:
         - [ ] Ensure that the ProdOps assignee has the correct permissions on the backup-server to do a dry-run of the feature.
         - [ ] Hand off this issue to the ProdOps team (deassign yourself and tag/add the correct assignee from ProdOps).
 
-        **Preparation and Dry-Run**
-        - [ ] Ensure that the Google Drive folder for this feature has been correctly set up and contains the necessary documents (pre-launch review template, post-launch review template, links/shortcuts to PRDs, TDDs, etc.). Folder link: __________
+        **Preparation and Dry-Run (ProdOps team)**
         - [ ] Verify that the Marketing team's [tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0) has a sheet for this product launch.
         - [ ] [LATER, once analytics pipeline is set up] Set up the Looker Studio dashboard for the feature, and supplement it with metrics obtained using BigQuery queries, as needed.
         - [ ] [LATER, once analytics pipeline is set up] Add a link to the backup-server Looker Studio dashboard in the instructions for testers.
         - [ ] Do a full run-through of the feature, and make updates to clarify the CUJ descriptions as needed. Then, post a new comment to this thread with the testing report, and cc the developer and relevant dev team leads. Ensure that any bugs found during this process are filed and assigned to the developer. If you see design issues, it's fine to loop in the design team. If issues were discovered in the run-through, repeat the above as needed until there are no more issues. (Only mark this step as complete once that stage is reached -- at this point, ProdOps is saying "I'm happy with the feature, it can go to full QA.")
         - [ ] [LATER, once analytics pipeline is set up] Verify that events from the testing were correctly recorded on the Looker Studio dashboard.
 
-        **Full feature testing**
+        **Full feature testing (ProdOps team)**
         - [ ] Set up a "launch command channel" Google Space for this feature launch and invite all relevant parties (design, developer, QA, campaign strategy team members + leads).
         - [ ] Give the QA leads a heads-up that a new feature will be coming to test soon. Send them the CUJs and request the list of tester usernames. Do the same for any members from the Campaign Strategy and Design teams who want to participate.
         - [ ] Ask the tech leads to provide the necessary permissions to the tester usernames on the backup-server.
@@ -166,7 +165,7 @@ body:
         - [ ] Send a message to the Campaign Strategy leads to let them know that the product is ready for launch. 
         - [ ] If the Campaign Strategy team wants to include a "trusted tester" phase, run through this with them following the guidance in the Product/Marketing Communication Process document.
 
-        **Rollout**
+        **Rollout (ProdOps team)**
         - [ ] Agree on launch date with Marketing team and tech leads, and document it here. **Launch date**: ______.
         - [ ] [LATER, once analytics pipeline is set up] Check the ProdOps "CUJ health" analytics dashboard to verify that the new dashboards for this feature have been included in it.
         - [ ] Verify that the QA team has added the feature's CUJs to the master CUJ document.
