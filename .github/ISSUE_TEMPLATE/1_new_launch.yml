@@ -27,6 +27,13 @@ body:
       label: Brief description of the feature. Include links to PRD and TDD.
     validations:
       required: true
+  - type: input
+    id: pre-launch-review-doc-link
+    attributes:
+      label: Link to the [pre-launch review doc](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.4t336fwwj9ly) for this feature
+      description: This should include the PRD, TDD, CUJs, starting URL path, etc.
+    validations:
+      required: true
   - type: dropdown
     id: expected-code-complete-date
     attributes:
@@ -49,14 +56,20 @@ body:
       description: GitHub username of the primary feature developer
     validations:
       required: true
-  - type: input
-    id: cujs-link
+  - type: checkboxes
+    id: responsible-tls
     attributes:
-      label: Link to the spreadsheet containing the critical user journeys for this feature
-      description: >
-        The spreadsheet should be formatted similarly to this
-        [acceptance test matrix](https://docs.google.com/spreadsheets/d/1O8EHiSAGrG0yoNUBz9E4DIwKNS8Rfsv_ffC4k1WK5jc/edit?gid=1275148408#gid=1275148408).
-        In other words, the user journeys should be grouped by user type, and clearly laid out with steps and expectations.
+      label: Dev Leads
+      description: Who are the responsible dev leads for this feature?
+      options:
+        - label: kevintab95
+        - label: U8NWXD
+        - label: BenHenning
+        - label: adhiamboperes
+        - label: HardikGoyal2003
+        - label: mon4our
+        - label: chris7716
+        - label: masterboy376
     validations:
       required: true
   - type: checkboxes
@@ -80,15 +93,6 @@ body:
     validations:
       required: true
   - type: input
-    id: url-path
-    attributes:
-      label: URL path from which to access the feature
-      description: >
-        Which initial URL path is this feature accessed from? Note
-        that it should start with a '/', e.g. '/learn/math`.
-    validations:
-      required: true
-  - type: input
     id: feature-flag-name
     attributes:
       label: Feature flag name
@@ -107,16 +111,16 @@ body:
     attributes:
       label: Link to the PR which moved the flag to the TEST feature stage
       description: >
-        To be eligible for feature testing, your feature flag must be in the TEST stage.
+        To be eligible for launch, your feature flag must be in the TEST stage.
         See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
     validations:
-      required: false      
+      required: false
   - type: textarea
     id: any-other-info
     attributes:
-      label: (Optional) Is there anything else you would like the testing team to know?
+      label: (Optional) Is there anything else you would like the ProdOps team to know?
       description: >
-        For example, anything in particular that you would like feedback on. The ProdOps
+        For example, anything in particular that you would like feedback on during testing. The ProdOps
         team will include this request when corresponding with the QA team.
     validations:
       required: false
@@ -130,11 +134,11 @@ body:
         checkbox item as you complete each step:
 
         **Tech-lead prep (to be done by a tech lead)**
-        - [ ] Ensure that the issue is filed correctly (i.e. that the PRD, TDD, CUJs, permissions, feature flag name and starting URL path are provided). Ask for any missing info if needed.
-        - [ ] Ensure that the "Instructions for Testers" page of the pre-launch review doc is fully filled in.
+        - [ ] Ensure that this issue is filed correctly. Ask for any missing info if needed.
+        - [ ] Ensure that the "Information for Testers" page of the pre-launch review doc is fully filled in, and that the pre-launch review doc has been moved (not just shortcut-linked) into [this Drive folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0).
         - [ ] Ask the developer and the relevant dev team leads to subscribe to this issue thread for updates, and ensure that they've done so.
         - [ ] Verify that the "test stage" PR has been merged (see the "Link to the PR which moved the flag to the TEST feature stage" field), and that it actually moves the feature flag to the TEST stage.
-        - [ ] Once the "test stage" PR has been merged, ask the server admins to deploy it to the backup-server.
+        - [ ] Once the "test stage" PR has been merged, deploy it to the backup-server.
         - [ ] Enable the feature flag on the backup-server.
         - [ ] Verify that the feature's CUJs actually work technically on the backup-server (with the flag enabled). Clarify any CUJs that aren't clear with the developer.
         - [ ] Ensure that the ProdOps assignee has the correct permissions on the backup-server to do a dry-run of the feature.
