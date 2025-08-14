@@ -32,7 +32,8 @@ body:
     attributes:
       label: Link to the ProdOps Drive folder for this feature
       description: >
-        This should include a pre-launch doc that follows
+        This should be a subfolder of the [ProdOps Feature Launch folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0). 
+        Ask a ProdOps lead or Tech Lead to make one for you if needed. The folder should include a pre-launch doc that follows
         [this template](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.4t336fwwj9ly),
         as well as any related documents (PRD, TDD, CUJs, etc.).
     validations:
@@ -138,7 +139,8 @@ body:
 
         **Tech-lead prep (to be done by a tech lead)**
         - [ ] Ensure that this issue is filed correctly. Ask for any missing info if needed.
-        - [ ] Ensure that the "Information for Testers" page of the pre-launch review doc is fully filled in, and that the pre-launch review doc has been moved (not just shortcut-linked) into [this Drive folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0).
+        - [ ] Ensure that the Drive folder is in the [ProdOps Feature Launch folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the pre-launch review doc, PRD, TDD, etc. (these should be the actual docs, not just shortcut links to them).
+        - [ ] Ensure that the "Information for Testers" page of the pre-launch review doc is fully filled in.
         - [ ] Ask the developer and the relevant dev team leads to subscribe to this issue thread for updates, and ensure that they've done so.
         - [ ] Verify that the "test stage" PR has been merged (see the "Link to the PR which moved the flag to the TEST feature stage" field), and that it actually moves the feature flag to the TEST stage.
         - [ ] Once the "test stage" PR has been merged, deploy it to the backup-server.
