@@ -63,21 +63,6 @@ body:
       description: The tech lead will add this when handing off to ProdOps.
     validations:
       required: false
-  - type: dropdown
-    id: expected-code-complete-date
-    attributes:
-      label: Expected code-complete date
-      description: This should include implementation of any analytics events noted in the PRD.
-      options:
-        - 2025 Q4
-        - 2026 Q1
-        - 2026 Q2
-        - 2026 Q3
-        - 2026 Q4
-        - 2027 Q1
-        - 2027 Q2
-    validations:
-      required: true
   - type: input
     id: developer-id
     attributes:
@@ -99,6 +84,21 @@ body:
         - label: BenHenning
         - label: adhiamboperes
         - label: subhajitxyz        
+    validations:
+      required: true
+  - type: dropdown
+    id: expected-code-complete-date
+    attributes:
+      label: Expected code-complete date
+      description: This should include implementation of any analytics events noted in the PRD.
+      options:
+        - 2025 Q4
+        - 2026 Q1
+        - 2026 Q2
+        - 2026 Q3
+        - 2026 Q4
+        - 2027 Q1
+        - 2027 Q2
     validations:
       required: true
   - type: checkboxes
