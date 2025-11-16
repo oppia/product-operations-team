@@ -46,6 +46,23 @@ body:
         as well as any related documents (PRD, TDD, CUJs, etc.).
     validations:
       required: true
+  - type: input
+    id: test-stage-PR
+    attributes:
+      label: Link to the PR which moved the flag to the TEST feature stage
+      description: >
+        To be eligible for launch, your feature flag must be in the TEST stage.
+        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
+        The tech lead can fill this in later once the feature is ready.
+    validations:
+      required: false
+  - type: input
+    id: google-space-link
+    attributes:
+      label: Link to the launch command channel for this feature.
+      description: The tech lead will add this when handing off to ProdOps.
+    validations:
+      required: false
   - type: dropdown
     id: expected-code-complete-date
     attributes:
@@ -76,12 +93,12 @@ body:
       options:
         - label: kevintab95
         - label: U8NWXD
-        - label: BenHenning
-        - label: adhiamboperes
         - label: HardikGoyal2003
         - label: mon4our
-        - label: chris7716
-        - label: masterboy376
+        - label: NITISH084
+        - label: BenHenning
+        - label: adhiamboperes
+        - label: subhajitxyz        
     validations:
       required: true
   - type: checkboxes
@@ -116,22 +133,6 @@ body:
     attributes:
       label: (Android only) Minimum supported Android version
       description: Specify the minimum Android version to enable the feature flag for
-    validations:
-      required: false
-  - type: input
-    id: test-stage-PR
-    attributes:
-      label: Link to the PR which moved the flag to the TEST feature stage
-      description: >
-        To be eligible for launch, your feature flag must be in the TEST stage.
-        See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
-    validations:
-      required: false
-  - type: input
-    id: google-space-link
-    attributes:
-      label: Link to the launch command channel for this feature.
-      description: The tech lead will add this when handing off to ProdOps.
     validations:
       required: false
   - type: textarea
