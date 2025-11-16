@@ -195,16 +195,17 @@ body:
         - [ ] Formally greenlight the launch. (Only mark this step as complete when ProdOps has made the decision to greenlight.)
 
         #### Rollout (ProdOps team)
-        - [ ] Let the group chat know that the feature is greenlit for launch. Ask the tech leads to deploy the updated feature flag to PROD, and the Marketing team to prepare collateral. Also, ask both of them to specify when they will do these by (it must be in advance of their desired launch date).
-        - [ ] Agree on launch date with Marketing team and tech leads, and document it here. **Launch date**: ______.
-        - [ ] Confirm with the dev leads that the binary with the PROD flag has been deployed to prod.
-        - [ ] Confirm with the marketing leads that the marketing collateral is ready.
+        - [ ] Agree on launch date with Marketing team and tech leads, and document it here.
+          - [ ] **Deployment date of binary** (with the flag enable-able in PROD mode): _________.
+          - [ ] **Date for completing all marketing collateral**: _______.
+          - [ ] **Launch date to users** (must be after the above): _______.
+        - [ ] Turn on the feature flag for just the PM.
+        - [ ] PM verifies that the feature works correctly.
         - [ ] [LATER, once analytics pipeline is set up] Check the ProdOps "CUJ health" analytics dashboard to verify that the new dashboards for this feature have been included in it.
-        - [ ] Work with the server admins team to flip the feature flag 5-7 days before the launch date, and confirm that the feature works in production.
-        - [ ] Once the flag is flipped, update the rows for this feature in the master CUJ document to have a status of "Current" (rather than being gated behind a flag).
-        - [ ] Send out an internal congratulatory launch email to the relevant Oppia teams, crediting all the folks involved in the launch.
-        - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above).
-        - [ ] Monitor post-launch feedback through [GitHub](https://github.com/oppia/oppia/issues) issues, filed and [Google Groups forum](https://groups.google.com/g/oppia).
+        - [ ] Work with the server admins team to flip the feature flag per the rollout schedule before the launch date, and confirm that the feature works in production. (Do partial rollout if desired, to make sure usage doesn't drop / support requests don't spike / system health is good.)
+        - [ ] Once the feature is actually launched to all users, send out a congratulatory launch email, crediting all the folks involved in the launch. Show some pictures!
+        - [ ] Update the rows for this feature in the master CUJ document to have a status of "Current" (rather than being gated behind a flag).
+        - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above), filed [GitHub issues](https://github.com/oppia/oppia/issues), and [Google Groups forum](https://groups.google.com/g/oppia).
         - [ ] 2 weeks after launch, compile a [post-launch report](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit) and schedule a post-launch review with everyone on the command channel (design, developers, marketing, QA).
         - [ ] Ask the tech leads to remove the feature flag. **Link to PR that removes the flag: _____.**
         - [ ] Close this bug. This concludes the feature launch, congratulations! 🎉
