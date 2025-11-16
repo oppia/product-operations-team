@@ -196,15 +196,16 @@ body:
 
         #### Rollout (ProdOps team)
         - [ ] Agree on launch date with Marketing team and tech leads, and document it here.
-          - [ ] **Deployment date of binary** (with the flag enable-able in PROD mode): _________.
-          - [ ] **Date for completing all marketing collateral**: _______.
-          - [ ] **Launch date to users** (must be after the above): _______.
+             - [ ] **Deployment date of binary** (with the flag enable-able in PROD mode): _________.
+             - [ ] **Date for completing all marketing collateral**: _______.
+             - [ ] **Launch date to users** (must be after the above): _______.
         - [ ] Turn on the feature flag for just the PM.
         - [ ] PM verifies that the feature works correctly.
         - [ ] [LATER, once analytics pipeline is set up] Check the ProdOps "CUJ health" analytics dashboard to verify that the new dashboards for this feature have been included in it.
         - [ ] Work with the server admins team to flip the feature flag per the rollout schedule before the launch date, and confirm that the feature works in production. (Do partial rollout if desired, to make sure usage doesn't drop / support requests don't spike / system health is good.)
-        - [ ] Once the feature is actually launched to all users, send out a congratulatory launch email, crediting all the folks involved in the launch. Show some pictures!
-        - [ ] Update the rows for this feature in the master CUJ document to have a status of "Current" (rather than being gated behind a flag).
+        - [ ] Once the feature is actually launched to all users:
+             - [ ] Send out a congratulatory launch email, crediting all the folks involved in the launch. Show some pictures!
+             - [ ] Update the rows for this feature in the master CUJ document to have a status of "Current" (rather than being gated behind a flag).
         - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above), filed [GitHub issues](https://github.com/oppia/oppia/issues), and [Google Groups forum](https://groups.google.com/g/oppia).
         - [ ] 2 weeks after launch, compile a [post-launch report](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit) and schedule a post-launch review with everyone on the command channel (design, developers, marketing, QA).
         - [ ] Ask the tech leads to remove the feature flag. **Link to PR that removes the flag: _____.**
