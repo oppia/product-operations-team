@@ -146,9 +146,11 @@ body:
   - type: textarea
     id: instructions-for-prodops
     attributes:
-      label: Instructions for ProdOps Team
+      label: Instructions for Dev Leads, Prod Ops and QA Teams
       description: Please leave this section as-is.
       value: |
+        ------
+
         When you are assigned to this issue, please do the following. Tick each
         checkbox item as you complete each step:
 
