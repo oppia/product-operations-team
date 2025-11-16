@@ -30,11 +30,19 @@ body:
   - type: input
     id: pre-launch-review-doc-link
     attributes:
+      label: Link to the Pre-Launch Review Doc for this feature
+      description: >
+        This should be a document that follows
+        [this template](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.4t336fwwj9ly).
+    validations:
+      required: true
+  - type: input
+    id: drive-folder-link
+    attributes:
       label: Link to the ProdOps Drive folder for this feature
       description: >
         This should be a subfolder of the [ProdOps Feature Launch folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0). 
-        Ask a ProdOps lead or Tech Lead to make one for you if needed. The folder should include a pre-launch doc that follows
-        [this template](https://docs.google.com/document/d/1ibQC9t1jnOg-o1lrHEM3QEXeF4eSqAiPhs2lD2iCpy4/edit?tab=t.4t336fwwj9ly),
+        Ask a ProdOps lead or Tech Lead to make one for you if needed. The folder should include the pre-launch doc above,
         as well as any related documents (PRD, TDD, CUJs, etc.).
     validations:
       required: true
@@ -44,13 +52,13 @@ body:
       label: Expected code-complete date
       description: This should include implementation of any analytics events noted in the PRD.
       options:
-        - 2025 Q2
-        - 2025 Q3
         - 2025 Q4
         - 2026 Q1
         - 2026 Q2
         - 2026 Q3
         - 2026 Q4
+        - 2027 Q1
+        - 2027 Q2
     validations:
       required: true
   - type: input
@@ -119,6 +127,13 @@ body:
         See guidance [here](https://github.com/oppia/oppia/wiki/Launching-new-features#how-to-use-feature-flags).
     validations:
       required: false
+  - type: input
+    id: google-space-link
+    attributes:
+      label: Link to the launch command channel for this feature.
+      description: The tech lead will add this when handing off to ProdOps.
+    validations:
+      required: false
   - type: textarea
     id: any-other-info
     attributes:
@@ -139,38 +154,55 @@ body:
 
         #### Tech-lead prep (to be done by a tech lead)
         - [ ] Ensure that this issue is filed correctly. Ask for any missing info if needed.
-        - [ ] Ensure that the Drive folder is in the [ProdOps Feature Launch folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the pre-launch review doc, PRD, TDD, etc. (these should be the actual docs, not just shortcut links to them).
-        - [ ] Ensure that the "Information for Testers" page of the pre-launch review doc is fully filled in.
-        - [ ] Ask the developer and the relevant dev team leads to subscribe to this issue thread for updates, and ensure that they've done so.
+        - [ ] Confirm that the Drive folder is in the [ProdOps Feature Launch folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0).
+        - [ ] Confirm that the Drive folder contains the pre-launch review doc, PRD, and TDD (these should be the actual docs, not just shortcut links to them).
+        - [ ] Ask the developer and the relevant dev team leads to subscribe to **this issue thread** for updates, and ensure that they've done so. (You should also subscribe to it for the same reason.)
+        - [ ] Ask the developer and the relevant dev team leads to subscribe to [comment/edit notifications](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop) on the **pre-launch review doc** for updates, and ensure that they've done so. (You should also subscribe to it for the same reason.)
+        - [ ] Ensure that the "Information for Testers" and "Information for Server Admins" pages of the pre-launch review doc are fully filled in.        
+        - [ ] Ensure that the CUJs in the spreadsheet relating to this feature are updated. If any behaviour is hidden behind a flag, there should be a "Current" row and a separate row for the flag-hidden behaviour.
+        - [ ] Verify that all the above CUJs are fully covered by acceptance tests, and that the implemented acceptance tests in the codebase match the ones documented in the spreadsheet.
+        - [ ] If the feature launch will include manual steps (in addition to deploying to PROD and turning the flag on), create a **tech launch plan** with all the steps needed, similar to [this one](https://docs.google.com/document/d/1AmECWsG8KQcYDtB91725MHfN0G6hp86HEiV_okXspNg/edit?tab=t.0). Ensure that it is added to the Drive folder. This should consider any migrations or data upgrades that need to happen, as well as any launch-time changes that are needed for reliabilty, deployability, performance, scalability, stability.
         - [ ] Verify that the "test stage" PR has been merged (see the "Link to the PR which moved the flag to the TEST feature stage" field), and that it actually moves the feature flag to the TEST stage.
+
+        #### Tech-lead verification (to be done by the same tech lead)
         - [ ] Once the "test stage" PR has been merged, deploy it to the backup-server.
         - [ ] Enable the feature flag on the backup-server.
+        - [ ] Complete any steps in the tech launch plan (if one exists) on the backup-server.
         - [ ] Verify that the feature's CUJs actually work technically on the backup-server (with the flag enabled). Clarify any CUJs that aren't clear with the developer.
+        - [ ] Set up a Google Space group chat for this feature launch. Title it "[Launch] Name_Of_Feature" (where Name_Of_Feature is replaced by the name of the feature you're launching).
+        - [ ] Invite the following people to the launch group chat: (a) the developer of the feature, (b) the relevant dev leads, (c) the ProdOps assignee, (d) the ProdOps leads, (e) any folks in UXD/UXR who were involved in the feature's design, (f) the QA assignee, (g) the QA leads, (h) the Marketing assignee, and (i) the Marketing leads.
+        - [ ] Click on the "Board" icon in the Google Space, and add the following resources in this order: (a) TDD, (b) PRD, (c) Drive folder, (d) Launch Checklist (GitHub), (e) Pre-Launch Review Doc. (The resources will then appear in reverse order, so that the pre-launch review doc is at the top.)
+        - [ ] Send a message to `@all` to introduce the group chat and ask everyone in it to subscribe to the space with "Notifications" set to "All". Explain that the launch chat is where all communication about the launch will happen, and that the launch checklist on GitHub must be kept up-to-date. Provide a link to the GitHub launch checklist.
+        - [ ] Ask everyone in the launch chat (ProdOps, QA) to subscribe to [comment/edit notifications](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop) on the **pre-launch review doc** for updates.
         - [ ] Ensure that the ProdOps assignee has the correct permissions on the backup-server to do a dry-run of the feature.
-        - [ ] Hand off this issue to the ProdOps team (deassign yourself and tag/add the correct assignee from ProdOps).
+        - [ ] Hand off this issue to the ProdOps team (deassign yourself and tag/add the correct assignee from ProdOps). (Only mark this step as complete once the **ProdOps assignee** has acknowledged the handoff.)
 
         #### Preparation and Dry-Run (ProdOps team)
         - [ ] Verify that the Marketing team's [tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0) has a sheet for this product launch.
+        - [ ] Send an email to qa-leads@ to let them know that the feature is coming soon (subject to passing the ProdOps dry-run).
         - [ ] [LATER, once analytics pipeline is set up] Set up the Looker Studio dashboard for the feature, and supplement it with metrics obtained using BigQuery queries, as needed.
         - [ ] [LATER, once analytics pipeline is set up] Add a link to the backup-server Looker Studio dashboard in the instructions for testers.
         - [ ] Do a full run-through of the feature, and make updates to clarify the CUJ descriptions as needed. Then, post a new comment to this thread with the testing report, and cc the developer and relevant dev team leads. Ensure that any bugs found during this process are filed and assigned to the developer. If you see design issues, it's fine to loop in the design team. If issues were discovered in the run-through, repeat the above as needed until there are no more issues. (Only mark this step as complete once that stage is reached -- at this point, ProdOps is saying "I'm happy with the feature, it can go to full QA.")
         - [ ] [LATER, once analytics pipeline is set up] Verify that events from the testing were correctly recorded on the Looker Studio dashboard.
 
         #### Full feature testing (ProdOps and QA teams)
-        - [ ] Set up a "launch command channel" Google Space for this feature launch and invite all relevant parties (design, developer, QA, campaign strategy team members + leads). Name the channel as follows: "[Feature Launch] Name_Of_Feature" (where Name_Of_Feature is replaced by the name of the feature you're launching).
-        - [ ] Send QA team (qa-team AT oppia DOT org) an email that a new feature is ready for testing. Send them the pre-launch doc (with CUJs) and request the list of tester usernames. Do the same for any members from the Campaign Strategy (campaign-strategy-team@) and Design teams (design-team@) who want to participate.
+        - [ ] Send QA team (qa-team AT oppia DOT org) an email that a new feature is ready for testing. Send them the pre-launch doc (with CUJs) and request the list of tester usernames.
         - [ ] Ask the tech leads to provide the necessary permissions (see "Required roles for testing", above) to the tester usernames on the backup-server.
-        - [ ] Ask QA leads to start the feature testing process. As testing progresses, make updates to clarify the CUJ descriptions as needed. Add a comment to this issue thread with a link to the feature testing report, and cc the developer and relevant dev team leads. Ensure that any new bugs are filed and assigned to the developer. Periodically check the Looker Studio dashboard to verify that metrics are being correctly recorded during feature testing, and adjust the metrics, if needed, to make them more useful. If issues were discovered in the testing, repeat the above as needed until there are no more issues. (Only mark this step as complete once the feature passes testing.)
-        - [ ] Tell the tech leads that the feature has passed QA and can be moved to PROD stage. They should link to the PR here once it is merged: ______.
-        - [ ] Send a message to the Campaign Strategy leads to let them know that the product is ready for launch. 
-        - [ ] If the Campaign Strategy team wants to include a "trusted tester" phase, run through this with them following the guidance in the Product/Marketing Communication Process document.
+        - [ ] Ask QA leads to (a) start the feature testing process, (b) send updates to the group chat after each testing cycle, and (c) send a final update once they've confirmed that the full feature is working properly and is good to launch. If there are bugs found in the testing, they should inform the developer, who should fix the issues and ask for a re-test. This continues until all issues have been fixed. (While this is happening, ProdOps should periodically check the Looker Studio dashboard to verify that metrics are being correctly recorded during feature testing, and adjust the metrics, if needed, to make them more useful.) (Note: Only mark this step as complete **when the QA leads have notified the group chat that testing is complete**.)
+        - [ ] Ask the tech leads to move the feature to PROD stage, and add a link to the PR here once it is merged: ______. (Only mark this step as complete once the **tech leads** have done this.)
+        - [ ] Perform a final Product review. Product should review the state of QA findings, including whether any bugs still exist, and look at the feature again if a lot of changes have been made. They should also understand any caveats (e.g. if anything has been disabled due to quality issues, etc.). They should also decide (in collaboration with the Campaign Strategy and UXR teams) whether the project needs a "trusted tester" phase.
+        - [ ] If the decision is made to include a "trusted tester" phase, run through this with the UXR/Marketing teams following the guidance in the Product/Marketing Communication Process document. (Only mark this step as complete when the "trusted tester" phase is complete, or if there is no "trusted tester" phase.)
+        - [ ] Formally greenlight the launch. (Only mark this step as complete when ProdOps has made the decision to greenlight.)
 
         #### Rollout (ProdOps team)
+        - [ ] Let the group chat know that the feature is greenlit for launch. Ask the tech leads to deploy the updated feature flag to PROD, and the Marketing team to prepare collateral. Also, ask both of them to specify when they will do these by (it must be in advance of their desired launch date).
         - [ ] Agree on launch date with Marketing team and tech leads, and document it here. **Launch date**: ______.
+        - [ ] Confirm with the dev leads that the binary with the PROD flag has been deployed to prod.
+        - [ ] Confirm with the marketing leads that the marketing collateral is ready.
         - [ ] [LATER, once analytics pipeline is set up] Check the ProdOps "CUJ health" analytics dashboard to verify that the new dashboards for this feature have been included in it.
-        - [ ] Verify that the QA team has added the feature's CUJs to the master CUJ document.
         - [ ] Work with the server admins team to flip the feature flag 5-7 days before the launch date, and confirm that the feature works in production.
-        - [ ] Send out a congratulatory launch email, crediting all the folks involved in the launch.
+        - [ ] Once the flag is flipped, update the rows for this feature in the master CUJ document to have a status of "Current" (rather than being gated behind a flag).
+        - [ ] Send out an internal congratulatory launch email to the relevant Oppia teams, crediting all the folks involved in the launch.
         - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above).
         - [ ] Monitor post-launch feedback through [GitHub](https://github.com/oppia/oppia/issues) issues, filed and [Google Groups forum](https://groups.google.com/g/oppia).
         - [ ] 2 weeks after launch, compile a [post-launch report](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit) and schedule a post-launch review with everyone on the command channel (design, developers, marketing, QA).
