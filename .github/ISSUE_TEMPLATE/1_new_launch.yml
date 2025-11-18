@@ -206,12 +206,13 @@ body:
         - [ ] PM verifies that the feature works correctly.
         - [ ] [LATER, once analytics pipeline is set up] Check the ProdOps "CUJ health" analytics dashboard to verify that the new dashboards for this feature have been included in it.
         - [ ] Work with the server admins team to flip the feature flag per the rollout schedule before the launch date, and confirm that the feature works in production. (Do partial rollout if desired, to make sure usage doesn't drop / support requests don't spike / system health is good.)
+        - [ ] Ask the server admins to **permanently** flip the feature flag to ON in the test/backup servers. (Only mark this step as complete when they confirm they've done that.)
         - [ ] Once the feature is actually launched to all users:
              - [ ] Send out a congratulatory launch email, crediting all the folks involved in the launch. Show some pictures!
              - [ ] Update the rows for this feature in the master CUJ document to have a status of "Current" (rather than being gated behind a flag).
         - [ ] Monitor post-launch metrics through the feature's Looker Studio dashboard (constructed above), filed [GitHub issues](https://github.com/oppia/oppia/issues), and [Google Groups forum](https://groups.google.com/g/oppia).
         - [ ] 2 weeks after launch, compile a [post-launch report](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit) and schedule a post-launch review with everyone on the command channel (design, developers, marketing, QA).
-        - [ ] Ask the tech leads to remove the feature flag. **Link to PR that removes the flag: _____.**
+        - [ ] Ask the tech leads to (a) remove the feature flag, (b) drop obsolete journeys from the CUJ sheet. **Link to PR that removes the flag: _____.**
         - [ ] Close this bug. This concludes the feature launch, congratulations! 🎉
     validations:
       required: true
