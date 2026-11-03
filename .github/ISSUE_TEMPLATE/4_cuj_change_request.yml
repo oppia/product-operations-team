@@ -47,7 +47,8 @@ body:
         Link to a spreadsheet which shows the old journeys, the new journeys, and that highlights the changes.
         Please ensure your spreadsheet allows edit access by product-operations-team [at] oppia [dot] org
       value: |
-        Insert link to spreadsheet here. Make sure it allows edit access by the Product Operations team.
+        Insert link to spreadsheet here. Make sure it allows edit access by the Product Operations team. Show
+        the specific journeys that are changing and what the exact changes are.
     validations:
       required: true
 
