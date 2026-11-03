@@ -42,17 +42,12 @@ body:
   - type: textarea
     id: proposed_change
     attributes:
-      label: Current vs. Proposed Steps & Expectations
+      label: Link to Sheet with Current vs. Proposed Steps & Expectations
       description: |
-        Clearly show what is changing. If you are changing a lot of cells, it might be easier to
-        link to a spreadsheet which shows the old journeys, the new journeys, and that highlights
-        the changes. Please ensure your spreadsheet allows edit access by product-operations-team@oppia.org.
+        Link to a spreadsheet which shows the old journeys, the new journeys, and that highlights the changes.
+        Please ensure your spreadsheet allows edit access by product-operations-team [at] oppia [dot] org
       value: |
-        **Current Step:** 
-        **Current Expectation:** 
-        ---
-        **Proposed Step:** 
-        **Proposed Expectation:** 
+        Insert link to spreadsheet here. Make sure it allows edit access by the Product Operations team.
     validations:
       required: true
 
@@ -64,4 +59,3 @@ body:
       options:
         - label: "Product Lead approved the journey change"
         - label: "Master CUJ Sheet updated & Column L marked as 'Awaiting review'"
-        - label: "Tech Team updated automated E2E tests & marked Column L as 'Validated'"
