@@ -54,8 +54,7 @@ body:
   - type: checkboxes
     id: handoff_checklist
     attributes:
-      label: Execution Checklist (For CUJ Maintainers & Tech Team)
-      description: Track the progress of this CUJ update below.
+      label: Execution Checklist (DO NOT EDIT -- For ProdOps Leads & CUJ Maintainers only)
       options:
         - label: "Product Lead approved the journey change"
         - label: "Master CUJ Sheet updated & Column L marked as 'Awaiting review'"
