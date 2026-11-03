@@ -1,0 +1,67 @@
+name: CUJ Change Request
+description: Propose an update, addition, or removal to the Web or Android Critical User Journeys (CUJ) sheet.
+title: "[CUJ Update]: "
+labels: ["CUJ"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request changes to the Master CUJ Sheet. For simple typos or wording clarifications that don't change test behavior, leave a comment directly on the Google Sheet and tag `product-operations-leads@oppia.org`.
+        
+        If this change is driven by a PRD, **only submit this form once the PRD's "WHAT" section has been approved by a Product lead.**
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - Web (External, LEAP)
+        - Web (Internal, CORE)
+        - Android
+    validations:
+      required: true
+
+  - type: input
+    id: cuj_location
+    attributes:
+      label: Affected CUJ Section(s) / Row ID(s)
+      description: Which user journey(s) and row number(s) in the CUJ sheet are affected? (Avoid citing row numbers alone if rows shift frequently.)
+      placeholder: "e.g., Logged-Out Learner (LO.1), Rows 14-18"
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this change needed?
+      description: Link to any relevant bug report, approved PRD, UX study, design mock, or discussion thread.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Current vs. Proposed Steps & Expectations
+      description: |
+        Clearly show what is changing. If you are changing a lot of cells, it might be easier to
+        link to a spreadsheet which shows the old journeys, the new journeys, and that highlights
+        the changes. Please ensure your spreadsheet allows edit access by product-operations-team@oppia.org.
+      value: |
+        **Current Step:** 
+        **Current Expectation:** 
+        ---
+        **Proposed Step:** 
+        **Proposed Expectation:** 
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: handoff_checklist
+    attributes:
+      label: Execution Checklist (For CUJ Maintainers & Tech Team)
+      description: Track the progress of this CUJ update below.
+      options:
+        - label: "Product Lead approved the journey change"
+        - label: "Master CUJ Sheet updated & Column L marked as 'Awaiting review'"
+        - label: "Tech Team updated automated E2E tests & marked Column L as 'Validated'"
