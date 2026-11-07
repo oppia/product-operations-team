@@ -167,7 +167,7 @@ body:
         - [ ] **Create Launch Google Space:**
           - [ ] Create a Space titled `[Launch] <Feature_Name>` and invite: Developer, Dev Leads, ProdOps, UXD/UXR, QA, and Marketing.
           - [ ] Pin a welcome post with links to: (1) Pre-Launch Doc, (2) this GitHub Issue, (3) Drive Folder, (4) PRD/TDD.
-          - [ ] Send a message to `@all` to set Space notifications to **"All"**, subscribe to this GitHub issue, and subscribe to [comment/edit notifications](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop) on the Pre-Launch Doc.
+          - [ ] Send a message to `@all` asking them to set Space notifications to **"All"**, subscribe to this GitHub issue, and subscribe to [comment/edit notifications](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop) on the Pre-Launch Doc.
         - [ ] **Handoff to ProdOps:** Assign this issue to the ProdOps owner and tag them in the Space. *(Check this item off only after the ProdOps owner has acknowledged the handoff.)*
 
         #### Phase 2: Dry-Run, Analytics & QA Testing (Owners: ProdOps & QA)
