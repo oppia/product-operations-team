@@ -171,11 +171,10 @@ body:
         - [ ] **Handoff to ProdOps:** Assign this issue to the ProdOps owner and tag them in the Space. *(Check this item off only after the ProdOps owner has acknowledged the handoff.)*
 
         #### Phase 2: Dry-Run, Analytics & QA Testing (Owners: ProdOps & QA)
-        - [ ] **Align Marketing, UXR & Analytics:**
-          - [ ] Confirm the feature is in the [Marketing Tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0).
-          - [ ] Decide with UXR if a **Trusted Tester** phase is required.
-          - [ ] File an issue on the **Product Analytics tracker** to set up the Looker Studio dashboard and BigQuery queries for this feature. **Link to Analytics Issue / Dashboard:** ________.
-          - [ ] Add a link to the backup server's Looker Studio dashboard in the *"Information for Testers"* section of the Pre-Launch Review Doc.
+        - [ ] Confirm the feature is in the [Marketing Tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0).
+        - [ ] Decide with UXR if a **Trusted Tester** phase is required.
+        - [ ] File an [issue](https://github.com/oppia/analytics-data-platform/issues/new?template=02_new_feature.yml) on the **Product Analytics tracker** to set up the Looker Studio dashboard and BigQuery queries for this feature. **Link to Analytics Issue / Dashboard:** ________.
+        - [ ] Add a link to the backup server's Looker Studio dashboard in the *"Information for Testers"* section of the Pre-Launch Review Doc.
         - [ ] **ProdOps Dry-Run:**
           - [ ] Test the feature end-to-end on the backup server. File any bugs/design issues and re-test until resolved. Post the sign-off report to this GitHub issue.
           - [ ] Verify that events expected from the dry-run were accurately recorded on the Analytics Looker Studio dashboard.
