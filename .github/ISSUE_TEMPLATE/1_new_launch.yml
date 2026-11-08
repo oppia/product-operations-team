@@ -16,8 +16,8 @@ body:
       label: Product
       description: Which platform/team owns this feature?
       options:
-        - Web (LaCE)
-        - Web (Contributor Dashboard)
+        - Web (LEAP)
+        - Web (CORE)
         - Android
     validations:
       required: true
@@ -79,11 +79,9 @@ body:
         - label: kevintab95
         - label: U8NWXD
         - label: HardikGoyal2003
-        - label: mon4our
-        - label: NITISH084
-        - label: BenHenning
         - label: adhiamboperes
-        - label: subhajitxyz        
+        - label: BenHenning
+        - label: NITISH084
     validations:
       required: true
   - type: dropdown
@@ -92,13 +90,13 @@ body:
       label: Expected code-complete date
       description: This should include implementation of any analytics events noted in the PRD.
       options:
-        - 2025 Q4
-        - 2026 Q1
-        - 2026 Q2
-        - 2026 Q3
         - 2026 Q4
         - 2027 Q1
         - 2027 Q2
+        - 2027 Q3
+        - 2027 Q4
+        - 2028 Q1
+        - 2028 Q2
     validations:
       required: true
   - type: checkboxes
@@ -157,11 +155,11 @@ body:
         feature's **Launch Google Space**.
 
         #### Phase 1: Tech Lead Setup and Verification (Owner: Tech Lead)
-        - [ ] **Verify Drive Folder & Docs:** Confirm the feature's folder is in the [ProdOps Feature Launch Folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the actual files (not shortcuts) for the **PRD**, **TDD**, **Tech Launch Plan** (if migrations/manual steps are needed, using [this template](https://docs.google.com/document/d/1AmECWsG8KQcYDtB91725MHfN0G6hp86HEiV_okXspNg/edit?tab=t.0)), and the completed **Pre-Launch Review Doc** (with *"Information for Testers"* and *"Information for Server Admins"* filled in).
+        - [ ] **Verify Drive Folder & Docs:** Confirm the feature's folder is in the [ProdOps Feature Launch Folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the actual files (not shortcuts) for the **PRD**, **TDD**, and the completed **Pre-Launch Review Doc** (with *"Information for Testers"* and *"Instructions for Server Admins"* filled in).
         - [ ] Ensure the relevant product's CUJ sheet includes this feature with status **"GATED"** (file a [CUJ Change Request](https://github.com/oppia/product-operations-team/issues/new?template=4_cuj_change_request.yml) issue if needed).
         - [ ] Confirm that automated acceptance tests cover all new/updated CUJs, and complete the *"Evaluation of Automated Tests"* columns in the CUJ sheet.
         - [ ] **Deploy & Test on Backup Server**
-          - [ ] Merge the `TEST`-stage flag PR, deploy to the backup server, run any Tech Launch Plan steps, and turn the flag ON.
+          - [ ] Merge the `TEST`-stage flag PR, deploy to the backup server, run any steps in the "Instructions for Server Admins" section of the pre-launch review doc, and turn the flag ON.
           - [ ] Walk through all CUJs on the backup server to verify technical functionality and confirm analytics events fire as expected.
         - [ ] Ensure the ProdOps assignee and QA Leads have the required testing roles on the backup server.
         - [ ] **Create Launch Google Space:**
@@ -193,7 +191,7 @@ body:
           - **Marketing Ready Date** (all collateral prepared): ________
           - **Public Launch Date** (must be after the above): ________
         - [ ] **Prod Smoke Test & Analytics Check:**
-          - [ ] Confirm the release binary is deployed to PROD and any **Tech Launch Plan** migrations have been executed.
+          - [ ] Confirm the release binary is deployed to PROD and any migrations in the "Instructions for Server Admins" in the pre-launch review doc have been executed.
           - [ ] Ask Server Admins to enable the flag in PROD **for the ProdOps assignee only**, and verify the feature works in production.
           - [ ] Check the ProdOps **"CUJ Health"** master analytics dashboard to verify that the new dashboards for this feature have been integrated into it.
         - [ ] **Execute Rollout:**
