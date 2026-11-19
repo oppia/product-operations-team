@@ -157,7 +157,7 @@ body:
         #### Phase 1: Tech Lead Setup and Verification (Owner: Tech Lead)
         - [ ] **Verify Drive Folder & Docs:** Confirm the feature's folder is in the [ProdOps Feature Launch Folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the actual files (not shortcuts) for the **PRD**, **TDD**, and the completed **Pre-Launch Review Doc** (with *"Information for Testers"* and *"Instructions for Server Admins"* filled in).
         - [ ] Ensure the relevant product's CUJ sheet includes this feature with status **"GATED"** (file a [CUJ Change Request](https://github.com/oppia/product-operations-team/issues/new?template=4_cuj_change_request.yml) issue if needed).
-        - [ ] Confirm that automated acceptance tests cover all new/updated CUJs, and complete the *"Evaluation of Automated Tests"* columns in the CUJ sheet.
+        - [ ] Confirm that automated acceptance tests cover all new/updated CUJs, and complete the *"Coverage Status"* column in the CUJ sheet.
         - [ ] **Deploy & Test on Backup Server**
           - [ ] Merge the `TEST`-stage flag PR, deploy to the backup server, run any steps in the "Instructions for Server Admins" section of the pre-launch review doc, and turn the flag ON.
           - [ ] Walk through all CUJs on the backup server to verify technical functionality and confirm analytics events fire as expected.
