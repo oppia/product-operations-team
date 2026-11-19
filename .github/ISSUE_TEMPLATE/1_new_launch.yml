@@ -171,15 +171,15 @@ body:
         #### Phase 2: Dry-Run, Analytics & QA Testing (Owners: ProdOps & QA)
         - [ ] Confirm the feature is in the [Marketing Tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0).
         - [ ] Decide with UXR if a Trusted Tester phase is required.
-        - [ ] File an [issue](https://github.com/oppia/analytics-data-platform/issues/new?template=02_new_feature.yml) on the Product Analytics tracker to set up the Looker Studio dashboard and BigQuery queries for this feature. **Link to Analytics Issue / Dashboard:** ________.
-        - [ ] Add a link to the backup server's Looker Studio dashboard in the *"Information for Testers"* section of the Pre-Launch Review Doc.
+        - [ ] File an [issue](https://github.com/oppia/analytics-data-platform/issues/new?template=02_new_feature.yml) on the Product Analytics tracker to set up the Data Studio dashboard and BigQuery queries for this feature. **Link to Analytics Issue / Dashboard:** ________.
+        - [ ] Add a link to the backup server's Data Studio dashboard in the *"Information for Testers"* section of the Pre-Launch Review Doc.
         - [ ] **ProdOps Dry-Run:**
           - [ ] Test the feature end-to-end on the backup server. File any bugs/design issues and re-test until resolved. Post the sign-off report to this GitHub issue.
-          - [ ] Verify that events expected from the dry-run were accurately recorded on the Analytics Looker Studio dashboard.
+          - [ ] Verify that events expected from the dry-run were accurately recorded on the Analytics Data Studio dashboard.
         - [ ] **QA Testing Loop:**
           - [ ] Tag `@qa-leads` in the Launch Space to begin full QA testing (coordinating with Tech Leads to grant backup-server access to additional tester usernames as needed).
           - [ ] Developer fixes any reported bugs and adds automated test coverage; QA re-tests until zero blocking bugs remain.
-          - [ ] ProdOps periodically checks the Looker Studio dashboard during QA testing to confirm that metrics are recording accurately and raises issues to the Technical and Product Analytics teams as needed.
+          - [ ] ProdOps periodically checks the Data Studio dashboard during QA testing to confirm that metrics are recording accurately and raises issues to the Technical and Product Analytics teams as needed.
           - [ ] **QA Sign-Off:** QA Leads confirm in the Launch Space that testing is complete.
         - [ ] **Trusted Tester Phase (if applicable):** Complete the Trusted Tester run with UXR. *(Check this box immediately if a Trusted Tester phase is not needed.)*
         - [ ] Address any remaining QA findings/caveats and formally greenlight the launch.
@@ -202,7 +202,7 @@ body:
           - [ ] Update the feature's rows in the master CUJ sheet from **"GATED"** to **"LIVE"**.
           - [ ] Send a congratulatory launch email to everyone@, with screenshots crediting everyone involved!
         - [ ] **Post-Launch Review & Cleanup (2 Weeks Post-Launch):**
-          - [ ] Monitor the feature's Looker Studio dashboard, [GitHub issues](https://github.com/oppia/oppia/issues), and the [Google Group](https://groups.google.com/g/oppia) for 2 weeks.
+          - [ ] Monitor the feature's Data Studio dashboard, [GitHub issues](https://github.com/oppia/oppia/issues), and the [Google Group](https://groups.google.com/g/oppia) for 2 weeks.
           - [ ] Compile the [Post-Launch Report](https://docs.google.com/document/d/1DifFAe3oRzjmVPh2fEllfAky4n0QMAXVQc3Y580qkr8/edit) and host a post-launch review with the Launch Space.
           - [ ] Ask Tech Leads to remove the feature flag from the codebase (**Link to PR:** ________), then close this issue. 🎉
     validations:
