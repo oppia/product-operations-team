@@ -155,13 +155,16 @@ body:
         feature's **Launch Google Space**.
 
         #### Phase 1: Tech Lead Setup and Verification (Owner: Tech Lead)
-        - [ ] **Verify Drive Folder & Docs:** Confirm the feature's folder is in the [ProdOps Feature Launch Folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the actual files (not shortcuts) for the **PRD**, **TDD**, and the completed **Pre-Launch Review Doc** (with *"Information for Testers"* and *"Instructions for Server Admins"* filled in).
+        - [ ] **Verify Drive Folder & Docs:** Confirm the feature's folder is in the [ProdOps Feature Launch Folder](https://drive.google.com/drive/folders/10TW7dUApMoBW4mhEh_JFuQxldWNudPv0) and that it contains the actual files (not shortcuts) for the **PRD**, **TDD**, and the completed **Pre-Launch Review Doc** (with the *"Information for Testers"* and *"Tech Launch Plan"* tabs fully filled in).
         - [ ] Ensure the relevant product's CUJ sheet includes this feature with status **"GATED"** (file a [CUJ Change Request](https://github.com/oppia/product-operations-team/issues/new?template=4_cuj_change_request.yml) issue if needed).
         - [ ] Confirm that automated acceptance tests cover all new/updated CUJs, and complete the *"Coverage Status"* column in the CUJ sheet.
-        - [ ] **Deploy & Test on Backup Server**
+        - [ ] **[WEB ONLY -- DELETE FOR ANDROID LAUNCHES] Deploy & Test on Backup Server**
           - [ ] Merge the `TEST`-stage flag PR, deploy to the backup server, run any steps in the "Instructions for Server Admins" section of the pre-launch review doc, and turn the flag ON.
           - [ ] Walk through all CUJs on the backup server to verify technical functionality and confirm analytics events fire as expected.
-        - [ ] Ensure the ProdOps assignee and QA Leads have the required testing roles on the backup server.
+          - [ ] Ensure the ProdOps assignee and QA Leads have the required testing roles on the backup server.
+        - [ ] **[ANDROID ONLY -- DELETE FOR WEB LAUNCHES]
+          - [ ] Enable the feature flag on alpha by setting it to true in [/featureoverrides/alpha/feature_flags_overrides.textproto](https://github.com/oppia/oppia-android/blob/develop/config/src/java/org/oppia/android/config/platform/featureoverrides/alpha/feature_flags_overrides.textproto) 
+          - [ ] Once deployed to Firebase, walk through all CUJs on the backup server to verify technical functionality and confirm analytics events fire as expected.
         - [ ] **Create Launch Google Space:**
           - [ ] Create a Space titled `[Launch] <Feature_Name>` and invite: Developer, Dev Leads, ProdOps, UXD/UXR, QA, and Marketing.
           - [ ] Pin a welcome post with links to: (1) Pre-Launch Doc, (2) this GitHub Issue, (3) Drive Folder, (4) PRD/TDD.
@@ -172,15 +175,15 @@ body:
         - [ ] Confirm the feature is in the [Marketing Tracker](https://docs.google.com/spreadsheets/d/1zkucuPbuFp9gzJXcWKjoZCqwDTT24xY1ufSX7ku9JAo/edit?gid=0#gid=0).
         - [ ] Decide with UXR if a Trusted Tester phase is required.
         - [ ] File an [issue](https://github.com/oppia/analytics-data-platform/issues/new?template=02_new_feature.yml) on the Product Analytics tracker to set up the Data Studio dashboard and BigQuery queries for this feature. **Link to Analytics Issue / Dashboard:** ________.
-        - [ ] Add a link to the backup server's Data Studio dashboard in the *"Information for Testers"* section of the Pre-Launch Review Doc.
+        - [ ] Add a link to the relevant Data Studio dashboard (backup server for Web, alpha for Android) in the *"Information for Testers"* section of the Pre-Launch Review Doc.
         - [ ] **ProdOps Dry-Run:**
-          - [ ] Test the feature end-to-end on the backup server. File any bugs/design issues and re-test until resolved. Post the sign-off report to this GitHub issue.
+          - [ ] Test the feature end-to-end on the backup server (for Web launches) or on alpha (for Android launches). File any bugs/design issues and re-test until resolved. Post the sign-off report to this GitHub issue.
           - [ ] Verify that events expected from the dry-run were accurately recorded on the Analytics Data Studio dashboard.
         - [ ] **QA Testing Loop:**
           - [ ] Tag `@qa-leads` in the Launch Space to begin full QA testing (coordinating with Tech Leads to grant backup-server access to additional tester usernames as needed).
           - [ ] Developer fixes any reported bugs and adds automated test coverage; QA re-tests until zero blocking bugs remain.
           - [ ] ProdOps periodically checks the Data Studio dashboard during QA testing to confirm that metrics are recording accurately and raises issues to the Technical and Product Analytics teams as needed.
-          - [ ] **QA Sign-Off:** QA Leads confirm in the Launch Space that testing is complete.
+        - [ ] **QA Sign-Off:** QA Leads confirm in the Launch Space that testing is complete.
         - [ ] **Trusted Tester Phase (if applicable):** Complete the Trusted Tester run with UXR. *(Check this box immediately if a Trusted Tester phase is not needed.)*
         - [ ] Address any remaining QA findings/caveats and formally greenlight the launch.
         - [ ] Ask Tech Leads to merge the PR moving the flag to the `PROD` stage. **Link to PR:** ________.
@@ -190,14 +193,18 @@ body:
           - **Binary Deployment Date** (with flag in PROD mode): ________
           - **Marketing Ready Date** (all collateral prepared): ________
           - **Public Launch Date** (must be after the above): ________
-        - [ ] **Prod Smoke Test & Analytics Check:**
+        - **Analytics Check**: Check the ProdOps **"CUJ Health"** master analytics dashboard to verify that the new dashboards for this feature have been integrated into it.
+        - [ ] **[WEB ONLY -- DELETE FOR ANDROID LAUNCHES] Roll out the feature:**
           - [ ] Confirm the release binary is deployed to PROD and any migrations in the "Instructions for Server Admins" in the pre-launch review doc have been executed.
           - [ ] Ask Server Admins to enable the flag in PROD **for the ProdOps assignee only**, and verify the feature works in production.
-          - [ ] Check the ProdOps **"CUJ Health"** master analytics dashboard to verify that the new dashboards for this feature have been integrated into it.
-        - [ ] **Execute Rollout:**
           - [ ] Work with Server Admins to turn the flag ON in PROD per the rollout schedule (using a partial/gradual rollout if desired to monitor usage, support requests, and system health).
           - [ ] Ask Server Admins to **permanently** set the feature flag to `ON` in the `test`/`backup` servers. *(Only mark this checkbox as complete once they've confirmed it's `ON`.)*
           - **Rollback Rule**: If a P0 bug or server instability occurs, immediately ask Server Admins to disable the flag and alert `@all` in the Launch Space.
+        - [ ] **[ANDROID ONLY -- DELETE FOR WEB LAUNCHES] Roll out the feature:**
+          - [ ] Verify the update is published on PlayStore.
+          - [ ] Verify that a user who has installed the update can access the feature.
+          - [ ] Rollout starts at about 25% → (monitor 48h) → 50% → (monitor 3 days) → 100%
+          - **Rollback Rule**: If a P0 bug occurs (crashes and ANRs affecting many users), halt rollout and file issues, and alert @all in the Launch Space.
         - [ ] **Launch Day Actions (at 100% Rollout):**
           - [ ] Update the feature's rows in the master CUJ sheet from **"GATED"** to **"LIVE"**.
           - [ ] Send a congratulatory launch email to everyone@, with screenshots crediting everyone involved!
